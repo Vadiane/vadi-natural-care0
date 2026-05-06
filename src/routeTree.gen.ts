@@ -13,6 +13,7 @@ import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as PanierRouteImport } from './routes/panier'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as BoutiqueRouteImport } from './routes/boutique'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProduitSlugRouteImport } from './routes/produit.$slug'
 
@@ -36,6 +37,11 @@ const BoutiqueRoute = BoutiqueRouteImport.update({
   path: '/boutique',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -49,6 +55,7 @@ const ProduitSlugRoute = ProduitSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
   '/boutique': typeof BoutiqueRoute
   '/checkout': typeof CheckoutRoute
   '/panier': typeof PanierRoute
@@ -57,6 +64,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
   '/boutique': typeof BoutiqueRoute
   '/checkout': typeof CheckoutRoute
   '/panier': typeof PanierRoute
@@ -66,6 +74,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
   '/boutique': typeof BoutiqueRoute
   '/checkout': typeof CheckoutRoute
   '/panier': typeof PanierRoute
@@ -76,16 +85,25 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/blog'
     | '/boutique'
     | '/checkout'
     | '/panier'
     | '/quiz'
     | '/produit/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/boutique' | '/checkout' | '/panier' | '/quiz' | '/produit/$slug'
+  to:
+    | '/'
+    | '/blog'
+    | '/boutique'
+    | '/checkout'
+    | '/panier'
+    | '/quiz'
+    | '/produit/$slug'
   id:
     | '__root__'
     | '/'
+    | '/blog'
     | '/boutique'
     | '/checkout'
     | '/panier'
@@ -95,6 +113,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BlogRoute: typeof BlogRoute
   BoutiqueRoute: typeof BoutiqueRoute
   CheckoutRoute: typeof CheckoutRoute
   PanierRoute: typeof PanierRoute
@@ -132,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BoutiqueRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -151,6 +177,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BlogRoute: BlogRoute,
   BoutiqueRoute: BoutiqueRoute,
   CheckoutRoute: CheckoutRoute,
   PanierRoute: PanierRoute,
