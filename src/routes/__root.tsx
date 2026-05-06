@@ -33,14 +33,18 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Vadi Natural Care – Soins Capillaires Naturels Cameroun" },
-      { name: "description", content: "Découvrez Vadi Natural Care : soins naturels pour cheveux crépus et bouclés, formulés au Cameroun avec karité, hibiscus et moringa." },
+      { title: "Vadi Natural Care – Soins Capillaires Naturels" },
+      { name: "description", content: "Découvrez Vadi Natural Care : soins naturels pour cheveux crépus et bouclés, formulés au Cameroun." },
       { name: "author", content: "Vadi Natural Care" },
       { property: "og:title", content: "Vadi Natural Care – Soins Capillaires Naturels" },
-      { property: "og:description", content: "Soins naturels artisanaux pour cheveux crépus, bouclés et frisés. Made in Cameroon." },
+      { property: "og:description", content: "Découvrez Vadi Natural Care : soins naturels pour cheveux crépus et bouclés, formulés au Cameroun." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@vadhinaturalcare" },
+      { name: "twitter:title", content: "Vadi Natural Care – Soins Capillaires Naturels" },
+      { name: "twitter:description", content: "Découvrez Vadi Natural Care : soins naturels pour cheveux crépus et bouclés, formulés au Cameroun." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e4d159ea-2c06-4e22-8ded-c297bc238af3/id-preview-e73ff425--acf599fe-72c1-4ab3-9f53-405cadc5fecc.lovable.app-1778078140561.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e4d159ea-2c06-4e22-8ded-c297bc238af3/id-preview-e73ff425--acf599fe-72c1-4ab3-9f53-405cadc5fecc.lovable.app-1778078140561.png" },
     ],
     links: [
       {
