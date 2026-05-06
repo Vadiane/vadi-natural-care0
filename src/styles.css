@@ -63,25 +63,26 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  /* Vadi Natural Care palette: nude rose, beige, gold, cocoa */
+  --background: oklch(0.985 0.012 70);            /* #FDF9F5 */
+  --foreground: oklch(0.28 0.04 40);              /* cocoa */
+  --card: oklch(0.99 0.008 70);
+  --card-foreground: oklch(0.28 0.04 40);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.28 0.04 40);
+  --primary: oklch(0.62 0.17 0);                  /* #D4538A pink */
+  --primary-foreground: oklch(0.985 0.012 70);
+  --secondary: oklch(0.94 0.02 70);               /* beige #F5EFE6 */
+  --secondary-foreground: oklch(0.28 0.04 40);
+  --muted: oklch(0.94 0.02 70);
+  --muted-foreground: oklch(0.48 0.03 40);
+  --accent: oklch(0.76 0.09 75);                  /* gold #C9A96E */
+  --accent-foreground: oklch(0.22 0.03 40);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --border: oklch(0.9 0.015 60);
+  --input: oklch(0.9 0.015 60);
+  --ring: oklch(0.62 0.17 0);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -95,6 +96,27 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+@theme inline {
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "Poppins", system-ui, sans-serif;
+  --color-cocoa: oklch(0.28 0.04 40);
+  --color-gold: oklch(0.76 0.09 75);
+  --color-rose: oklch(0.62 0.17 0);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: "Poppins", system-ui, sans-serif;
+  }
+  h1, h2, h3, .font-display {
+    font-family: "Playfair Display", Georgia, serif;
+    letter-spacing: -0.01em;
+  }
 }
 
 .dark {
