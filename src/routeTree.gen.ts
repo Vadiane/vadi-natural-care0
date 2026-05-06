@@ -9,12 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as PanierRouteImport } from './routes/panier'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as BoutiqueRouteImport } from './routes/boutique'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProduitSlugRouteImport } from './routes/produit.$slug'
 
+const QuizRoute = QuizRouteImport.update({
+  id: '/quiz',
+  path: '/quiz',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PanierRoute = PanierRouteImport.update({
   id: '/panier',
   path: '/panier',
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/boutique': typeof BoutiqueRoute
   '/checkout': typeof CheckoutRoute
   '/panier': typeof PanierRoute
+  '/quiz': typeof QuizRoute
   '/produit/$slug': typeof ProduitSlugRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/boutique': typeof BoutiqueRoute
   '/checkout': typeof CheckoutRoute
   '/panier': typeof PanierRoute
+  '/quiz': typeof QuizRoute
   '/produit/$slug': typeof ProduitSlugRoute
 }
 export interface FileRoutesById {
@@ -61,19 +69,27 @@ export interface FileRoutesById {
   '/boutique': typeof BoutiqueRoute
   '/checkout': typeof CheckoutRoute
   '/panier': typeof PanierRoute
+  '/quiz': typeof QuizRoute
   '/produit/$slug': typeof ProduitSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/boutique' | '/checkout' | '/panier' | '/produit/$slug'
+  fullPaths:
+    | '/'
+    | '/boutique'
+    | '/checkout'
+    | '/panier'
+    | '/quiz'
+    | '/produit/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/boutique' | '/checkout' | '/panier' | '/produit/$slug'
+  to: '/' | '/boutique' | '/checkout' | '/panier' | '/quiz' | '/produit/$slug'
   id:
     | '__root__'
     | '/'
     | '/boutique'
     | '/checkout'
     | '/panier'
+    | '/quiz'
     | '/produit/$slug'
   fileRoutesById: FileRoutesById
 }
@@ -82,11 +98,19 @@ export interface RootRouteChildren {
   BoutiqueRoute: typeof BoutiqueRoute
   CheckoutRoute: typeof CheckoutRoute
   PanierRoute: typeof PanierRoute
+  QuizRoute: typeof QuizRoute
   ProduitSlugRoute: typeof ProduitSlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/quiz': {
+      id: '/quiz'
+      path: '/quiz'
+      fullPath: '/quiz'
+      preLoaderRoute: typeof QuizRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/panier': {
       id: '/panier'
       path: '/panier'
@@ -130,6 +154,7 @@ const rootRouteChildren: RootRouteChildren = {
   BoutiqueRoute: BoutiqueRoute,
   CheckoutRoute: CheckoutRoute,
   PanierRoute: PanierRoute,
+  QuizRoute: QuizRoute,
   ProduitSlugRoute: ProduitSlugRoute,
 }
 export const routeTree = rootRouteImport
