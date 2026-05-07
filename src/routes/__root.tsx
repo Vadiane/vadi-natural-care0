@@ -1,0 +1,112 @@
+import { Outlet, Link, createRootRoute } from "@tanstack/react-router";
+import { Toaster } from "@/components/ui/sonner";
+import { Header } from "@/components/site/Header";
+import { Footer } from "@/components/site/Footer";
+import { WhatsAppFAB } from "@/components/site/WhatsAppFAB";
+import appCss from "../styles.css?url";
+
+function NotFoundComponent() {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <h1 className="text-7xl font-bold text-foreground">404</h1>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          The page you're looking for doesn't exist or has been moved.
+        </p>
+        <div className="mt-6">
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Go home
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export const Route = createRootRoute({
+  head: () => ({
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "Vadi Natural Care – Soins Capillaires Naturels" },
+      { name: "description", content: "Découvrez Vadi Natural Care : soins naturels pour cheveux crépus et bouclés, formulés au Cameroun." },
+      { name: "author", content: "Vadi Natural Care" },
+      { property: "og:title", content: "Vadi Natural Care – Soins Capillaires Naturels" },
+      { property: "og:description", content: "Découvrez Vadi Natural Care : soins naturels pour cheveux crépus et bouclés, formulés au Cameroun." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@vadhinaturalcare" },
+      { name: "twitter:title", content: "Vadi Natural Care – Soins Capillaires Naturels" },
+      { name: "twitter:description", content: "Découvrez Vadi Natural Care : soins naturels pour cheveux crépus et bouclés, formulés au Cameroun." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e4d159ea-2c06-4e22-8ded-c297bc238af3/id-preview-e73ff425--acf599fe-72c1-4ab3-9f53-405cadc5fecc.lovable.app-1778078140561.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e4d159ea-2c06-4e22-8ded-c297bc238af3/id-preview-e73ff425--acf599fe-72c1-4ab3-9f53-405cadc5fecc.lovable.app-1778078140561.png" },
+    ],
+    links: [
+      {
+        rel: "stylesheet",
+        href: appCss,
+      },
+      {
+        rel: "preconnect",
+        href: "https://fonts.googleapis.com",
+      },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap",
+      },
+    ],
+  }),
+  shellComponent: RootShell,
+  component: RootComponent,
+  notFoundComponent: NotFoundComponent,
+});
+
+function RootShell({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="fr">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Vadi Natural Care – Soins Capillaires Naturels</title>
+        <meta
+          name="description"
+          content="Découvrez Vadi Natural Care : soins naturels pour cheveux crépus et bouclés, formulés au Cameroun."
+        />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+          rel="stylesheet"
+        />
+        <link rel="stylesheet" href={appCss} />
+      </head>
+      <body>
+        {children}
+      </body>
+    </html>
+  );
+}
+
+function RootComponent() {
+  return (
+    <div className="flex min-h-screen flex-col">
+      <Header />
+      <main className="flex-1">
+        <Outlet />
+      </main>
+      <Footer />
+      <WhatsAppFAB />
+      <Toaster position="top-right" richColors />
+    </div>
+  );
+}
