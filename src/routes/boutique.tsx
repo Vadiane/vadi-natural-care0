@@ -26,9 +26,6 @@ function Boutique() {
   const [active, setActive] = useState<Category | "tous">("tous");
   const list = active === "tous" ? allProducts : allProducts.filter((p) => p.category === active);
 
-  console.log("All products:", allProducts);
-  console.log("Filtered list:", list);
-
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 md:px-6">
       <header className="mb-10 text-center">
@@ -56,10 +53,6 @@ function Boutique() {
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <div className="col-span-full text-center py-8">
-          <p>Nombre de produits: {list.length}</p>
-          <p>Produits totaux: {allProducts.length}</p>
-        </div>
         {list.map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}
