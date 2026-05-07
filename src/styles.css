@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
 
+=======
+>>>>>>> 30952602a197ddfa96cea3f2e24dddf2014ebd07
 @import "tailwindcss" source(none);
 @import "tw-animate-css";
 @source "../src";
