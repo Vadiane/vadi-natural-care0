@@ -3,6 +3,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFAB } from "@/components/site/WhatsAppFAB";
+import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
   return (
@@ -44,6 +45,25 @@ export const Route = createRootRoute({
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e4d159ea-2c06-4e22-8ded-c297bc238af3/id-preview-e73ff425--acf599fe-72c1-4ab3-9f53-405cadc5fecc.lovable.app-1778078140561.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e4d159ea-2c06-4e22-8ded-c297bc238af3/id-preview-e73ff425--acf599fe-72c1-4ab3-9f53-405cadc5fecc.lovable.app-1778078140561.png" },
     ],
+    links: [
+      {
+        rel: "stylesheet",
+        href: appCss,
+      },
+      {
+        rel: "preconnect",
+        href: "https://fonts.googleapis.com",
+      },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap",
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -51,7 +71,30 @@ export const Route = createRootRoute({
 });
 
 function RootShell({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <html lang="fr">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Vadi Natural Care – Soins Capillaires Naturels</title>
+        <meta
+          name="description"
+          content="Découvrez Vadi Natural Care : soins naturels pour cheveux crépus et bouclés, formulés au Cameroun."
+        />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+          rel="stylesheet"
+        />
+        <link rel="stylesheet" href={appCss} />
+      </head>
+      <body>
+        {children}
+      </body>
+    </html>
+  );
 }
 
 function RootComponent() {
