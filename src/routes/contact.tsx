@@ -78,7 +78,7 @@ function ContactPage() {
             <ul className="mt-4 space-y-3 text-sm text-cocoa/80">
               <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-primary" /> +237 673 733 530</li>
               <li className="flex items-center gap-3"><Mail className="h-4 w-4 text-primary" /> contact@vadinaturalcare.cm</li>
-              <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-primary" /> Yaoundé, Cameroun</li>
+              <li className="flex items-center gap-3"><MapPin className="h-4 w-4 text-primary" /> Douala, Cameroun</li>
               <li className="flex items-center gap-3"><Instagram className="h-4 w-4 text-primary" /> @vadhinaturalcare</li>
             </ul>
           </div>

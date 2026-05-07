@@ -4,8 +4,8 @@ import { useCart, getCartDetailed, cartTotal } from "@/store/cart";
 import { formatFCFA } from "@/data/products";
 
 const regions: Record<string, number> = {
-  "Yaoundé": 1000,
-  "Douala": 1500,
+  "Douala": 1000,
+  "Yaoundé": 1500,
   "Bafoussam": 2500,
   "Bamenda": 3000,
   "Garoua": 3500,
@@ -14,10 +14,9 @@ const regions: Record<string, number> = {
 };
 
 const paymentMethods = [
-  { id: "mtn", label: "MTN Mobile Money", info: "MTN MoMo : 673 733 530" },
-  { id: "orange", label: "Orange Money", info: "Orange Money : 691 000 000" },
-  { id: "carte", label: "Carte Bancaire (Visa / Mastercard)", info: "Lien sécurisé envoyé par WhatsApp" },
-  { id: "livraison", label: "Paiement à la livraison", info: "Réglez en espèces à la réception" },
+  { id: "mtn", label: "MTN Mobile Money", info: "Le numéro MoMo vous sera transmis sur WhatsApp après confirmation." },
+  { id: "orange", label: "Orange Money", info: "Le numéro Orange Money vous sera transmis sur WhatsApp après confirmation." },
+  { id: "livraison", label: "Paiement à la livraison (Douala)", info: "Réglez en espèces à la réception (Douala uniquement)." },
 ] as const;
 
 export const Route = createFileRoute("/checkout")({
