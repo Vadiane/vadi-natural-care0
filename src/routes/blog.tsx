@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import ingredients from "@/assets/ingredients.jpg";
-import founder from "@/assets/founder.jpeg";
-import hero from "@/assets/hero-vadi.jpg";
+import ingredients from "@/assets/ingredients-real.jpg";
+import hydratation from "@/assets/blog-hydratation.jpg";
+import hero from "@/assets/hero-afro.jpg";
 
 export const Route = createFileRoute("/blog")({
   head: () => ({
@@ -37,7 +37,7 @@ const articles = [
     slug: "hydratation-vs-nutrition",
     title: "Hydratation vs nutrition : comprendre la différence",
     excerpt: "Eau, huile, beurre : à quoi sert vraiment chaque texture dans votre routine ?",
-    image: founder,
+    image: hydratation,
     date: "10 février 2026",
     cat: "Conseils",
   },

@@ -60,7 +60,7 @@ function Index() {
                   <Star key={i} className="h-4 w-4 fill-accent text-accent" />
                 ))}
               </div>
-              <span className="text-sm text-muted-foreground">+500 femmes nous font confiance</span>
+              <span className="text-sm text-muted-foreground">Soins naturels artisanaux</span>
             </div>
           </motion.div>
           <motion.div

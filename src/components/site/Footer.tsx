@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Facebook, MessageCircle } from "lucide-react";
+import { Instagram, Facebook, MessageCircle, Mail, Music2 } from "lucide-react";
 import logo from "@/assets/logo-vadi.png";
 
 export function Footer() {
@@ -35,12 +35,16 @@ export function Footer() {
         </div>
         <div>
           <h3 className="mb-3 font-display text-base">Suivez-nous</h3>
-          <div className="flex gap-3">
-            <a href="https://instagram.com/vadhinaturalcare" aria-label="Instagram" className="grid h-10 w-10 place-items-center rounded-full bg-background hover:bg-primary hover:text-primary-foreground"><Instagram className="h-4 w-4" /></a>
-            <a href="https://facebook.com/vadhinaturalcare" aria-label="Facebook" className="grid h-10 w-10 place-items-center rounded-full bg-background hover:bg-primary hover:text-primary-foreground"><Facebook className="h-4 w-4" /></a>
-            <a href="https://wa.me/237673733530" aria-label="WhatsApp" className="grid h-10 w-10 place-items-center rounded-full bg-background hover:bg-primary hover:text-primary-foreground"><MessageCircle className="h-4 w-4" /></a>
+          <p className="mb-3 text-sm text-muted-foreground">@vadi_natural_care</p>
+          <div className="flex flex-wrap gap-3">
+            <a href="https://www.instagram.com/vadi_natural_care" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="grid h-10 w-10 place-items-center rounded-full bg-background hover:bg-primary hover:text-primary-foreground"><Instagram className="h-4 w-4" /></a>
+            <a href="https://www.facebook.com/share/17jcVgQhLK/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="grid h-10 w-10 place-items-center rounded-full bg-background hover:bg-primary hover:text-primary-foreground"><Facebook className="h-4 w-4" /></a>
+            <a href="https://www.tiktok.com/@vadi_natural.care" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="grid h-10 w-10 place-items-center rounded-full bg-background hover:bg-primary hover:text-primary-foreground"><Music2 className="h-4 w-4" /></a>
+            <a href="https://wa.me/237673733530" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="grid h-10 w-10 place-items-center rounded-full bg-background hover:bg-primary hover:text-primary-foreground"><MessageCircle className="h-4 w-4" /></a>
+            <a href="mailto:vadibeauty2025@gmail.com" aria-label="Email" className="grid h-10 w-10 place-items-center rounded-full bg-background hover:bg-primary hover:text-primary-foreground"><Mail className="h-4 w-4" /></a>
           </div>
           <p className="mt-4 text-sm text-muted-foreground">WhatsApp : +237 673 733 530</p>
+          <p className="text-sm text-muted-foreground">Email : vadibeauty2025@gmail.com</p>
         </div>
       </div>
       <div className="border-t border-border/60 py-4 text-center text-xs text-muted-foreground">
