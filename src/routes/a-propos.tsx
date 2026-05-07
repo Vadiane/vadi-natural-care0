@@ -1,13 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Heart, Leaf, Sparkles, Users } from "lucide-react";
-import founder from "@/assets/founder.jpeg";
-import ingredients from "@/assets/ingredients.jpg";
+import founder from "@/assets/founder-vadiane.png";
+import ingredients from "@/assets/ingredients-real.jpg";
 
 export const Route = createFileRoute("/a-propos")({
   head: () => ({
     meta: [
       { title: "Notre histoire – Vadi Natural Care" },
-      { name: "description", content: "Vadi Natural Care, marque camerounaise de soins capillaires naturels. Découvrez notre mission et nos valeurs." },
+      { name: "description", content: "Vadi Natural Care, marque camerounaise fondée par Vadiane NYA à Douala. Soins capillaires naturels pour cheveux afro." },
       { property: "og:title", content: "L'histoire de Vadi Natural Care" },
       { property: "og:description", content: "Une marque camerounaise née de l'amour des cheveux naturels." },
       { property: "og:image", content: founder },
@@ -32,21 +32,21 @@ function AboutPage() {
             <span className="inline-flex rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">Notre histoire</span>
             <h1 className="mt-4 font-display text-4xl text-cocoa md:text-5xl">Une couronne, une mission ✨</h1>
             <p className="mt-4 leading-relaxed text-cocoa/80">
-              Vadi Natural Care est née au Cameroun, de la passion d'une femme convaincue
-              que les cheveux crépus, bouclés et frisés méritent des soins à la hauteur de leur beauté.
+              Vadi Natural Care est née à Douala, au Cameroun, de la passion de Vadiane NYA,
+              convaincue que les cheveux crépus, bouclés et frisés méritent des soins à la hauteur de leur beauté.
               Inspirées de traditions africaines et boostées par la science cosmétique,
               nos formules réveillent la santé, la pousse et la définition des cheveux naturels.
             </p>
             <p className="mt-3 leading-relaxed text-cocoa/80">
-              Chaque flacon est conçu artisanalement à Yaoundé avec des ingrédients locaux :
+              Chaque flacon est conçu artisanalement à Douala avec des ingrédients locaux :
               hibiscus, chébé, moringa, romarin, fenugrec et huile d'olive.
             </p>
           </div>
           <div className="relative">
-            <img src={founder} alt="Fondatrice Vadi Natural Care" className="rounded-3xl object-cover shadow-2xl" />
+            <img src={founder} alt="Vadiane NYA, fondatrice de Vadi Natural Care" className="aspect-[4/5] w-full rounded-3xl object-cover shadow-2xl" />
             <div className="absolute -bottom-6 -left-6 hidden rounded-2xl bg-card p-4 shadow-xl md:block">
               <p className="font-display text-lg text-cocoa">"Vos cheveux sont votre couronne."</p>
-              <p className="text-xs text-muted-foreground">— Fondatrice Vadi</p>
+              <p className="text-xs text-muted-foreground">— Vadiane NYA, fondatrice · Douala</p>
             </div>
           </div>
         </div>
