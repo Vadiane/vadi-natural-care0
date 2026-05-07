@@ -12,7 +12,7 @@ export function Footer() {
             <span className="font-display text-lg font-semibold">Vadi Natural Care</span>
           </div>
           <p className="mt-3 text-sm text-muted-foreground">
-            Soins capillaires naturels pour cheveux crépus, bouclés et frisés. Fabriqué au Cameroun avec amour.
+            Soins capillaires naturels pour cheveux crépus, bouclés et frisés. Fabriqué à Douala, Cameroun, avec amour par Vadiane NYA.
           </p>
         </div>
         <div>

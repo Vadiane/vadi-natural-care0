@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Sparkles, Leaf, Truck, Shield, Star } from "lucide-react";
-import hero from "@/assets/hero-vadi.jpg";
-import ingredients from "@/assets/ingredients.jpg";
+import hero from "@/assets/hero-afro.jpg";
+import ingredients from "@/assets/ingredients-real.jpg";
 import { products, packs } from "@/data/products";
 import { ProductCard } from "@/components/site/ProductCard";
 
@@ -88,7 +88,7 @@ function Index() {
             { icon: Leaf, title: "100% naturel", text: "Ingrédients africains, sans silicones" },
             { icon: Sparkles, title: "Fait main", text: "Formules artisanales au Cameroun" },
             { icon: Truck, title: "Livraison Cameroun", text: "Partout, sous 48h" },
-            { icon: Shield, title: "Paiement sécurisé", text: "MTN, Orange, Carte, à la livraison" },
+              { icon: Shield, title: "Paiement simple", text: "MTN MoMo, Orange Money ou à la livraison" },
           ].map((b) => (
             <div key={b.title} className="flex items-start gap-3">
               <span className="grid h-11 w-11 place-items-center rounded-full bg-secondary text-primary">
