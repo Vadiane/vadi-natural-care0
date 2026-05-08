@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
 import { useCart, getCartDetailed, cartTotal } from "@/store/cart";
 import { formatFCFA } from "@/data/products";
+import { buildOrderWhatsAppUrl } from "@/lib/whatsapp";
 
 export const Route = createFileRoute("/panier")({
   head: () => ({
@@ -17,6 +18,7 @@ function CartPage() {
   const { items, setQty, remove } = useCart();
   const detailed = getCartDetailed(items);
   const subtotal = cartTotal(items);
+  const whatsappUrl = buildOrderWhatsAppUrl({ lines: detailed, subtotal });
 
   if (detailed.length === 0) {
     return (
@@ -74,8 +76,11 @@ function CartPage() {
             <span>Total estimé</span><span className="text-primary">{formatFCFA(subtotal)}</span>
           </div>
           <Link to="/checkout" className="mt-2 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground shadow-lg">
-            Passer la commande
+            Renseigner la livraison
           </Link>
+          <a href={whatsappUrl} className="inline-flex w-full items-center justify-center rounded-full border border-primary px-6 py-3 text-sm font-semibold text-primary">
+            Commander directement sur WhatsApp
+          </a>
           <Link to="/boutique" className="block text-center text-sm text-cocoa/70 hover:text-primary">← Continuer mes achats</Link>
         </aside>
       </div>

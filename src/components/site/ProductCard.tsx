@@ -4,6 +4,7 @@ import { ShoppingBag } from "lucide-react";
 import { type Product, formatFCFA } from "@/data/products";
 import { useCart } from "@/store/cart";
 import { toast } from "sonner";
+import { buildOrderWhatsAppUrl } from "@/lib/whatsapp";
 
 export function ProductCard({ product }: { product: Product }) {
   const add = useCart((s) => s.add);
@@ -43,7 +44,17 @@ export function ProductCard({ product }: { product: Product }) {
           <button
             onClick={() => {
               add(product.id);
-              toast.success(`${product.name} ajouté au panier`);
+              toast.success(`${product.name} ajouté au panier`, {
+                action: {
+                  label: "Commander",
+                  onClick: () => {
+                    window.location.href = buildOrderWhatsAppUrl({
+                      lines: [{ product, qty: 1 }],
+                      subtotal: product.price,
+                    });
+                  },
+                },
+              });
             }}
             aria-label="Ajouter au panier"
             className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground transition hover:scale-110"
