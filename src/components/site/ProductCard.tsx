@@ -9,7 +9,7 @@ export function ProductCard({ product }: { product: Product }) {
   const add = useCart((s) => s.add);
   return (
     <motion.article
-      initial={{ opacity: 0, y: 20 }}
+      initial={false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5 }}
