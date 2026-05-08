@@ -78,7 +78,7 @@ function QuizPage() {
           {!done ? (
             <motion.div
               key={step}
-              initial={{ opacity: 0, x: 30 }}
+              initial={false}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -30 }}
               transition={{ duration: 0.3 }}
@@ -101,7 +101,7 @@ function QuizPage() {
           ) : (
             <motion.div
               key="result"
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               className="rounded-3xl border border-border/60 bg-card p-8 shadow-sm"
             >
