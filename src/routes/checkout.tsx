@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { useCart, getCartDetailed, cartTotal } from "@/store/cart";
 import { formatFCFA } from "@/data/products";
+import { buildOrderWhatsAppUrl } from "@/lib/whatsapp";
 
 const regions: Record<string, number> = {
   "Douala": 1000,
@@ -52,17 +53,14 @@ function Checkout() {
     e.preventDefault();
     if (!form.name || !form.phone || !form.address) return;
     const method = paymentMethods.find((p) => p.id === form.payment)!;
-    const lines = detailed
-      .map((d) => `• ${d.product.name} x${d.qty} — ${formatFCFA(d.product.price * d.qty)}`)
-      .join("%0A");
-    const message =
-      `Bonjour Vadi Natural Care ✨%0A%0ANouvelle commande :%0A${lines}` +
-      `%0A%0ASous-total : ${formatFCFA(subtotal)}` +
-      `%0ALivraison (${form.region}) : ${formatFCFA(shipping)}` +
-      `%0A*Total : ${formatFCFA(total)}*` +
-      `%0A%0AClient : ${form.name}%0ATel : ${form.phone}%0AEmail : ${form.email}%0AAdresse : ${form.address}` +
-      `%0A%0AMode de paiement : ${method.label}%0A${method.info}`;
-    const url = `https://wa.me/237673733530?text=${message}`;
+    const url = buildOrderWhatsAppUrl({
+      lines: detailed,
+      subtotal,
+      shipping: { region: form.region, amount: shipping },
+      total,
+      customer: form,
+      payment: method,
+    });
     clear();
     window.location.href = url;
   };

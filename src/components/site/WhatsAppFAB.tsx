@@ -1,7 +1,8 @@
 import { MessageCircle } from "lucide-react";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 export function WhatsAppFAB() {
-  const url = "https://wa.me/237673733530?text=Bonjour%20Vadi%20Natural%20Care%20%E2%9C%A8";
+  const url = buildWhatsAppUrl("Bonjour Vadi Natural Care ✨");
   return (
     <a
       href={url}
