@@ -6,6 +6,7 @@ import { allProducts, formatFCFA } from "@/data/products";
 import { useCart } from "@/store/cart";
 import { ProductCard } from "@/components/site/ProductCard";
 import { toast } from "sonner";
+import { buildOrderWhatsAppUrl } from "@/lib/whatsapp";
 
 export const Route = createFileRoute("/produit/$slug")({
   head: ({ params }) => {
@@ -110,7 +111,17 @@ function ProductPage() {
             <button
               onClick={() => {
                 add(product.id, qty);
-                toast.success(`${product.name} ajouté au panier`);
+                toast.success(`${product.name} ajouté au panier`, {
+                  action: {
+                    label: "Commander",
+                    onClick: () => {
+                      window.location.href = buildOrderWhatsAppUrl({
+                        lines: [{ product, qty }],
+                        subtotal: product.price * qty,
+                      });
+                    },
+                  },
+                });
               }}
               className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground shadow-lg transition hover:opacity-90"
             >
