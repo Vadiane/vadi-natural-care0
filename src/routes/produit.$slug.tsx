@@ -60,7 +60,7 @@ function ProductPage() {
 
       <div className="grid gap-10 lg:grid-cols-2">
         <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
+          initial={false}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
           className="overflow-hidden rounded-3xl bg-secondary/50 p-6"
